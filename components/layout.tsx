@@ -33,7 +33,7 @@ const Layout = (props: React.PropsWithChildren<Props>) => (
     </main>
 
     <footer className={ styles.footer }>
-      <div className={ styles.links }>
+      <nav className={ styles.links }>
         <Link href='/'>
           Home
         </Link>
@@ -41,7 +41,7 @@ const Layout = (props: React.PropsWithChildren<Props>) => (
         <Link href='/about'>
           About
         </Link>
-      </div>
+      </nav>
       <div className={ styles.credit }>
         Built by <a href='https://github.com/mattmacleod' target='_blank' rel='noreferrer'>
           @mattmacleod
