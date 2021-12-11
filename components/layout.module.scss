@@ -1,0 +1,64 @@
+@import 'styles/shared';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  flex: 0 0;
+  background: $color-header;
+
+  .logo {
+    flex: 0 0;
+    height: $size-header;
+    padding: grid-units(0.25);
+    margin-right: grid-units(0.5);
+    svg {
+      width: $size-header - grid-units(0.5);
+      height: $size-header - grid-units(0.5);
+      fill: white;
+    }
+  }
+
+  .title {
+    flex: 1 0;
+    @include font-size(24px, 1);
+    font-weight: bold;
+    line-height: $size-header;
+    color: white;
+  }
+}
+
+.main {
+  flex: 1 0;
+  padding: grid-units(1);
+}
+
+.footer {
+  display: flex;
+  flex: 0 0;
+  padding: grid-units(1);
+  background: $color-footer-background;
+  color: $color-lightest-grey;
+  a {
+    color: $color-footer-link;
+    &:hover {
+      text-decoration: underline;
+      filter: brightness(1.2);
+    }
+  }
+  .links {
+    flex: 1 0;
+  }
+  .sep {
+    color: $color-mid-grey;
+    margin: 0 grid-units(0.25);
+  }
+  .credit {
+    flex: 0 0;
+    white-space: nowrap
+  }
+}

@@ -1,0 +1,38 @@
+@import '~sass-material-colors/sass/sass-material-colors';
+@import './mixins';
+
+// Font and grid settings
+$font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$base-font-size: 16px;
+$base-line-height: 26px;
+
+// Base sizes
+$size-header: grid-units(2);
+
+// Base colors
+$color-darkest-grey: material-color('blue-grey', '900');
+$color-darker-grey: material-color('blue-grey', '800');
+$color-dark-grey: material-color('blue-grey', '700');
+$color-mid-grey: material-color('blue-grey', '400');
+$color-light-grey: material-color('blue-grey', '200');
+$color-lighter-grey: material-color('blue-grey', '100');
+$color-lightest-grey: material-color('blue-grey', '50');
+
+$color-primary: material-color('blue', '600');
+$color-secondary: material-color('indigo', '600');
+
+
+// Element colors
+$color-background: white;
+$color-foreground: $color-darker-grey;
+$color-header: $color-primary;
+$color-footer-background: material-color('blue-grey', '900');
+$color-footer-foreground: white;
+$color-footer-link: material-color('light-blue', '300');
+$color-link: $color-secondary;
+
+
+// Responsive layouts
+$breakpoints: (small: (0px 900px), medium: (901px 1200px), large: (1201px 100000px));
+
+// @import './components';
