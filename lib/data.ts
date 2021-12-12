@@ -9,36 +9,75 @@ const recipeDirectory = path.join(process.cwd(), 'recipes');
 
 export interface Recipe {
   slug: string;
-  name: string | null;
+  name: string;
+  tags: string[];
+  image: string;
+  servings: number;
+  prepTime: string;
+  cookTime: string;
+  equipment: string[];
+  ingredients: Record<string, string>[];
+  steps: string[];
   content: string;
 }
 
+// Return a list of all recipe files in the recipe listing directory.
 export const getRecipeFiles = () => {
   return fs.readdirSync(recipeDirectory);
 }
 
-export const getRecipeBySlug = (slug: string) => {
+// Get all recipes from disk by loading all recipe files and parsing them.
+export const getAllRecipes = (): Recipe[] =>{
+  const recipes: Recipe[] = [];
+  getRecipeFiles()
+    .map((f) => f.replace(/\.md$/, ''))
+    .forEach((f) => {
+      const recipe = getRecipeBySlug(f);
+      if (recipe) recipes.push(recipe);
+    }
+  );
+
+  return recipes;
+}
+
+// Parse Markdown content and render it to HTML.
+export const md2html = (markdown: string) =>{
+  return remark()
+    .use(html)
+    .processSync(markdown)
+    .toString();
+}
+
+// Given a recipe slug, load the content of the recipe from disk. Returns null
+// if the recipe doesn't exist.
+export const getRecipeBySlug = (slug: string): Recipe | null => {
+
+  // Get the full on-disk path to the recipe.
   const sanitizedSlug = sanitize(slug);
   const fullPath = path.join(recipeDirectory, `${ sanitizedSlug }.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
+
+  // Load the content – returning null if the file can't be found or read.
+  let fileContents: string;
+  try {
+    fileContents = fs.readFileSync(fullPath, 'utf8');
+  } catch (e) {
+    return null;
+  }
+
+  // Parse the data from the file's front matter, and the content of the file.
   const { data, content } = matter(fileContents);
 
   return {
     slug: sanitizedSlug,
-    name: data.name || null,
+    name: data.name,
+    tags: data.tags,
+    image: data.image,
+    servings: data.servings,
+    prepTime: data.prepTime,
+    cookTime: data.cookTime,
+    equipment: data.equipment,
+    ingredients: data.ingredients,
+    steps: data.steps,
     content: md2html(content),
   };
-}
-
-export const getAllRecipes = () =>{
-  const fileNames = getRecipeFiles();
-  const recipes = fileNames
-    .map((f) => getRecipeBySlug(f.replace(/\.md$/, '')));
-
-    return recipes;
-}
-
-export const md2html = (markdown: string) =>{
-  const result = remark().use(html).processSync(markdown);
-  return result.toString();
 }

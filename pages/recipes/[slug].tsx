@@ -20,9 +20,45 @@ const RecipePage = ({ recipe }: { recipe: Recipe }) => {
     <Layout>
       <article className={ styles.article }>
         <header className={ styles.header }>
-          <h2>{ recipe.name } </h2>
+          <h2>{ recipe.name }</h2>
         </header>
-        <section className={ styles.body } dangerouslySetInnerHTML={{ __html: recipe.content }} />
+        <section className={ styles.stats }>
+          <dl>
+            <dt>Servings</dt>
+            <dd>{ recipe.servings }</dd>
+            <dt>Prep time</dt>
+            <dd>{ recipe.prepTime }</dd>
+            <dt>Cooking time</dt>
+            <dd>{ recipe.cookTime }</dd>
+          </dl>
+        </section>
+
+        <section className={ styles.intro } dangerouslySetInnerHTML={{ __html: recipe.content }} />
+
+        <div className={ styles.mainContent }>
+
+          <div className={ styles.requirements }>
+            <section className={ styles.equipment }>
+              <h3>Equipment.</h3>
+              <ul>
+                { recipe.equipment.map((v, i) => <li key={ i }>{ v }</li>) }
+              </ul>
+            </section>
+            <section className={ styles.ingredients }>
+              <h3>Ingredients.</h3>
+              <ul>
+                { recipe.ingredients.map((value, i) => <li key={ i }>{ JSON.stringify(value) }</li>) }
+              </ul>
+            </section>
+          </div>
+
+          <section className={ styles.directions }>
+            <h3>Directions.</h3>
+            <ol>
+                { recipe.steps.map((s, i) => <li key={ i }>{ s }</li>) }
+            </ol>
+          </section>
+        </div>
       </article>
     </Layout>
   );
