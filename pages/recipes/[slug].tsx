@@ -4,7 +4,8 @@ import { ParsedUrlQuery } from 'querystring';
 
 import Layout from '/components/layout';
 
-import { getAllRecipes, getRecipeBySlug, Recipe } from '/lib/data';
+import { getAllRecipes, getRecipeBySlug } from '/lib/data';
+import { Recipe, Ingredient, IngredientUnit } from '/lib/types';
 
 import styles from './recipe.module.scss';
 
@@ -110,13 +111,51 @@ const Equipment = ({ recipe }: { recipe: Recipe }) => {
 };
 
 const Ingredients = ({ recipe }: { recipe: Recipe }) => {
+  const ingredients = recipe.ingredients.length === 1 ? (
+    <IngredientList ingredients={ recipe.ingredients[0].ingredients } />
+    ) : (
+      recipe.ingredients.map((g) => (
+        <div className={ styles.group } key={ g.name }>
+          <h4>{ g.name }</h4>
+          <IngredientList ingredients={ g.ingredients } />
+        </div>
+      )
+    )
+  );
+
   return (
     <section className={ styles.ingredients }>
       <h3>Ingredients</h3>
-      <ul>
-        { recipe.ingredients.map((value, i) => <li key={ i }>{ JSON.stringify(value) }</li>) }
-      </ul>
+      { ingredients }
     </section>
+  );
+};
+
+const IngredientList = ({ ingredients }: { ingredients: Ingredient[] }) => {
+  return (
+    <ul>
+      { ingredients.map((i, idx) => <IngredientItem ingredient={ i } key={ idx } /> ) }
+    </ul>
+  );
+};
+
+const IngredientItem = ({ ingredient }: { ingredient: Ingredient }) => {
+  const unit = (
+    ingredient.unit === IngredientUnit.weight ? 'grams' :
+    ingredient.unit === IngredientUnit.volume ? 'ml' :
+    ''
+  )
+  const quantity = ingredient.quantity;
+
+  return (
+    <li>
+      <span className={ styles.quantity }>
+        { quantity } { unit }
+      </span>
+      <span className={ styles.name }>
+        { ingredient.name }
+      </span>
+    </li>
   );
 };
 

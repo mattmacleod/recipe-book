@@ -5,21 +5,10 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
+import { IngredientGroup, Recipe, Ingredient, IngredientUnit } from './types';
+
 const recipeDirectory = path.join(process.cwd(), 'recipes');
 
-export interface Recipe {
-  slug: string;
-  name: string;
-  tags: string[];
-  image: string;
-  servings: number;
-  prepTime: string;
-  cookTime: string;
-  equipment: string[];
-  ingredients: any[];
-  steps: string[];
-  content: string;
-}
 
 // Return a list of all recipe files in the recipe listing directory.
 export const getRecipeFiles = () => {
@@ -69,9 +58,8 @@ export const getRecipeBySlug = (slug: string): Recipe | null => {
 
   // Validate the content of the data and raise an error at this stage if it is
   // not valid.
-  if (!data.name) {
-    throw new Error(`Recipe ${ slug } is missing a name.`);
-  }
+  if (!data.name) throw new Error(`Recipe ${ slug } is missing a name.`);
+  // TODO: additional validation
 
   return {
     slug: sanitizedSlug,
@@ -82,8 +70,95 @@ export const getRecipeBySlug = (slug: string): Recipe | null => {
     prepTime: data.prepTime || null,
     cookTime: data.cookTime || null,
     equipment: data.equipment || [],
-    ingredients: data.ingredients || [],
+    ingredients: parseIngredients(data.ingredients),
     steps: data.steps || [],
     content: content ? md2html(content) : '',
   };
 }
+
+// Parse raw ingredients from the recipe's front matter.
+const parseIngredients = (rawIngredients: any): IngredientGroup[] => {
+  const ingredients = rawIngredients as Record<string, any>[] | Record<string, Record<string, any>[]>;
+
+  if (Array.isArray(ingredients)) {
+    return [{
+      name: 'Ingredients',
+      ingredients: parseIngredientList(ingredients),
+    }];
+  } else {
+    return Object.keys(ingredients).map((key) => ({
+      name: key,
+      ingredients: parseIngredientList(ingredients[key]),
+    }));
+  }
+};
+
+const parseIngredientList = (ingredients: Record<string, any>[]): Ingredient[] => {
+  return ingredients.map((i) => {
+    const name = Object.keys(i)[0];
+    const rawQuantity = i[name];
+    const { quantity, unit } = parseQuantity(rawQuantity);
+
+    return {
+      name,
+      quantity,
+      unit,
+    }
+  });
+};
+
+const parseQuantity = (rawQuantity: any) => {
+  if (typeof rawQuantity === 'number') {
+    return {
+      quantity: rawQuantity,
+      unit: IngredientUnit.count,
+    };
+  } else if (typeof rawQuantity === 'string') {
+    return parseStringQuantity(rawQuantity);
+  } else {
+    throw new Error(`Unable to parse quantity: ${ JSON.stringify(rawQuantity) }`);
+  }
+};
+
+const parseStringQuantity = (rawQuantity: string): { quantity: number, unit: IngredientUnit } => {
+
+  // Find common weight types
+  const weightMatch = rawQuantity.match(/^(\d+)\s*(g|kg|grams|kilograms)$/i);
+  if (weightMatch) {
+    const quantity = parseInt(weightMatch[1]);
+    switch (weightMatch[2].toLowerCase()) {
+      case 'g':
+      case 'grams':
+        return { quantity, unit: IngredientUnit.weight };
+      case 'kg':
+      case 'kilograms':
+        return { quantity: quantity * 1000, unit: IngredientUnit.weight };
+    }
+  }
+
+  // Find common volume types
+  const volumeMatch = rawQuantity.match(/^(\d+)\s*(l|ml|litre|millilitre|tsp|teaspoon|tbsp|tablespoon)s?$/i);
+  if (volumeMatch) {
+    const quantity = parseInt(volumeMatch[1]);
+    switch (volumeMatch[2].toLowerCase()) {
+      case 'ml':
+      case 'millilitre':
+        return { quantity: quantity, unit: IngredientUnit.volume };
+      case 'l':
+      case 'litre':
+        return { quantity: quantity * 1000, unit: IngredientUnit.volume };
+      case 'tsp':
+      case 'teaspoon':
+        return { quantity: quantity * 5, unit: IngredientUnit.volume };
+      case 'tbsp':
+      case 'tablespoon':
+        return { quantity: quantity * 15, unit: IngredientUnit.volume };
+    }
+  }
+
+  // Unkown type
+  return {
+    quantity: 1,
+    unit: IngredientUnit.other,
+  }
+};

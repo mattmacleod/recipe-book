@@ -8,7 +8,7 @@ cookTime: 30 minutes
 equipment:
   - Large frying pan
 ingredients:
-  - For the sauce:
+  For the sauce:
     - soy sauce: 120ml
     - chicken stock: 120ml
     - dark brown sugar: 3tbsp
@@ -19,7 +19,7 @@ ingredients:
     - powdered ginger: 0.25 tsp
     - sesame seeds: 2 tsp
     - red chilli flakes: 2 tsp
-  - For the chicken:
+  For the chicken:
     - boneless, skinless chicken thighs: 500g
     - cornflour: 3 tbsp
     - salt: 0.5 tsp

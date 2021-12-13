@@ -8,13 +8,13 @@ servings: 12
 prepTime: 30 minutes active, 4 hours chilling, 3 hours setting
 equipment:
   - Deep, 20cm, loose-bottom cake tin
-  - Pallette knife
+  - Palette knife
 ingredients:
-  - For the base:
+  For the base:
     - melted butter: 100g
     - Loaker Napolitaner wafer biscuits: 180g
     - blanched hazelnuts: 50g
-  - For the filling:
+  For the filling:
     - cream cheese: 600g
     - caster sugar: 80g
     - oranges: 3
