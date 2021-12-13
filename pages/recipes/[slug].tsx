@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Link from 'next/link';
 import { ParsedUrlQuery } from 'querystring';
 
 import Layout from '/components/layout';
@@ -40,6 +41,13 @@ const RecipePage = ({ recipe }: { recipe: Recipe }) => {
 const Header = ({ recipe }: { recipe: Recipe }) => {
   return (
     <header className={ styles.header }>
+      <div className={ styles.breadcrumbs }>
+        <Link href='/'>
+          <a>
+            &larr; Home
+          </a>
+        </Link>
+      </div>
       <h2>{ recipe.name }</h2>
     </header>
   );
@@ -71,7 +79,7 @@ const Stats = ({ recipe }: { recipe: Recipe }) => {
   const cookTime = recipe.cookTime && (
     <li>
       <span className={ styles.label }>
-        Cook time
+        Cooking time
       </span>
       <span className={ styles.value }>
         { recipe.cookTime }
@@ -93,7 +101,7 @@ const Stats = ({ recipe }: { recipe: Recipe }) => {
 const Equipment = ({ recipe }: { recipe: Recipe }) => {
   return (
     <section className={ styles.equipment }>
-      <h3>Equipment.</h3>
+      <h3>Equipment</h3>
       <ul>
         { recipe.equipment.map((v, i) => <li key={ i }>{ v }</li>) }
       </ul>
@@ -104,7 +112,7 @@ const Equipment = ({ recipe }: { recipe: Recipe }) => {
 const Ingredients = ({ recipe }: { recipe: Recipe }) => {
   return (
     <section className={ styles.ingredients }>
-      <h3>Ingredients.</h3>
+      <h3>Ingredients</h3>
       <ul>
         { recipe.ingredients.map((value, i) => <li key={ i }>{ JSON.stringify(value) }</li>) }
       </ul>
@@ -115,7 +123,7 @@ const Ingredients = ({ recipe }: { recipe: Recipe }) => {
 const Directions = ({ recipe }: { recipe: Recipe }) => {
   return (
     <section className={ styles.directions }>
-      <h3>Directions.</h3>
+      <h3>Directions</h3>
       <ol>
           { recipe.steps.map((s, i) => <li key={ i }>{ s }</li>) }
       </ol>

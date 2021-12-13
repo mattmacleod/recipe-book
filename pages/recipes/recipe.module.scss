@@ -6,8 +6,22 @@
 }
 
 .header {
-  @include font-size(28px);
-  font-weight: bold;
+  h2 {
+    @include font-size(28px);
+    font-weight: bold;
+  }
+  .breadcrumbs {
+    @include font-size(14px);
+    a {
+      color: $color-primary;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .sep {
+      margin: 0 grid-units(0.25);
+    }
+  }
 }
 
 .stats {
@@ -25,6 +39,8 @@
 }
 
 .intro {
+  border-top: 1px $color-border solid;
+  padding-top: grid-units(1);
   p {
     margin-bottom: grid-units(1);
   }
@@ -37,6 +53,8 @@
 
 .mainContent {
   display: flex;
+  border-top: 1px $color-border solid;
+  padding-top: grid-units(1);
 }
 
 .requirements {
