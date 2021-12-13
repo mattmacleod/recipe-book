@@ -19,48 +19,113 @@ const RecipePage = ({ recipe }: { recipe: Recipe }) => {
   return (
     <Layout>
       <article className={ styles.article }>
-        <header className={ styles.header }>
-          <h2>{ recipe.name }</h2>
-        </header>
-        <section className={ styles.stats }>
-          <dl>
-            <dt>Servings</dt>
-            <dd>{ recipe.servings }</dd>
-            <dt>Prep time</dt>
-            <dd>{ recipe.prepTime }</dd>
-            <dt>Cooking time</dt>
-            <dd>{ recipe.cookTime }</dd>
-          </dl>
-        </section>
-
-        <section className={ styles.intro } dangerouslySetInnerHTML={{ __html: recipe.content }} />
+        <Header recipe={ recipe } />
+        <Stats recipe={ recipe } />
+        <Intro recipe={ recipe } />
 
         <div className={ styles.mainContent }>
 
           <div className={ styles.requirements }>
-            <section className={ styles.equipment }>
-              <h3>Equipment.</h3>
-              <ul>
-                { recipe.equipment.map((v, i) => <li key={ i }>{ v }</li>) }
-              </ul>
-            </section>
-            <section className={ styles.ingredients }>
-              <h3>Ingredients.</h3>
-              <ul>
-                { recipe.ingredients.map((value, i) => <li key={ i }>{ JSON.stringify(value) }</li>) }
-              </ul>
-            </section>
+            <Equipment recipe={ recipe } />
+            <Ingredients recipe={ recipe } />
           </div>
 
-          <section className={ styles.directions }>
-            <h3>Directions.</h3>
-            <ol>
-                { recipe.steps.map((s, i) => <li key={ i }>{ s }</li>) }
-            </ol>
-          </section>
+          <Directions recipe={ recipe } />
         </div>
       </article>
     </Layout>
+  );
+};
+
+const Header = ({ recipe }: { recipe: Recipe }) => {
+  return (
+    <header className={ styles.header }>
+      <h2>{ recipe.name }</h2>
+    </header>
+  );
+};
+
+const Stats = ({ recipe }: { recipe: Recipe }) => {
+  const servings = recipe.servings && (
+    <li>
+      <span className={ styles.label }>
+        Servings
+      </span>
+      <span className={ styles.value }>
+        { recipe.servings }
+      </span>
+    </li>
+  );
+
+  const prepTime = recipe.prepTime && (
+    <li>
+      <span className={ styles.label }>
+        Prep time
+      </span>
+      <span className={ styles.value }>
+        { recipe.prepTime }
+      </span>
+    </li>
+  );
+
+  const cookTime = recipe.cookTime && (
+    <li>
+      <span className={ styles.label }>
+        Cook time
+      </span>
+      <span className={ styles.value }>
+        { recipe.cookTime }
+      </span>
+    </li>
+  );
+
+  return (
+    <section className={ styles.stats }>
+      <ul>
+        { servings }
+        { prepTime }
+        { cookTime }
+      </ul>
+    </section>
+  );
+};
+
+const Equipment = ({ recipe }: { recipe: Recipe }) => {
+  return (
+    <section className={ styles.equipment }>
+      <h3>Equipment.</h3>
+      <ul>
+        { recipe.equipment.map((v, i) => <li key={ i }>{ v }</li>) }
+      </ul>
+    </section>
+  );
+};
+
+const Ingredients = ({ recipe }: { recipe: Recipe }) => {
+  return (
+    <section className={ styles.ingredients }>
+      <h3>Ingredients.</h3>
+      <ul>
+        { recipe.ingredients.map((value, i) => <li key={ i }>{ JSON.stringify(value) }</li>) }
+      </ul>
+    </section>
+  );
+};
+
+const Directions = ({ recipe }: { recipe: Recipe }) => {
+  return (
+    <section className={ styles.directions }>
+      <h3>Directions.</h3>
+      <ol>
+          { recipe.steps.map((s, i) => <li key={ i }>{ s }</li>) }
+      </ol>
+    </section>
+  );
+};
+
+const Intro = ({ recipe }: { recipe: Recipe }) => {
+  return (
+    <section className={ styles.intro } dangerouslySetInnerHTML={{ __html: recipe.content }} />
   );
 };
 

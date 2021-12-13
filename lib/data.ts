@@ -16,7 +16,7 @@ export interface Recipe {
   prepTime: string;
   cookTime: string;
   equipment: string[];
-  ingredients: Record<string, string>[];
+  ingredients: any[];
   steps: string[];
   content: string;
 }
@@ -67,17 +67,23 @@ export const getRecipeBySlug = (slug: string): Recipe | null => {
   // Parse the data from the file's front matter, and the content of the file.
   const { data, content } = matter(fileContents);
 
+  // Validate the content of the data and raise an error at this stage if it is
+  // not valid.
+  if (!data.name) {
+    throw new Error(`Recipe ${ slug } is missing a name.`);
+  }
+
   return {
     slug: sanitizedSlug,
     name: data.name,
-    tags: data.tags,
-    image: data.image,
-    servings: data.servings,
-    prepTime: data.prepTime,
-    cookTime: data.cookTime,
-    equipment: data.equipment,
-    ingredients: data.ingredients,
-    steps: data.steps,
-    content: md2html(content),
+    tags: data.tags || [],
+    image: data.image || null,
+    servings: data.servings || 1,
+    prepTime: data.prepTime || null,
+    cookTime: data.cookTime || null,
+    equipment: data.equipment || [],
+    ingredients: data.ingredients || [],
+    steps: data.steps || [],
+    content: content ? md2html(content) : '',
   };
 }

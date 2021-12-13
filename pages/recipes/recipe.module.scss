@@ -12,15 +12,14 @@
 
 .stats {
   margin: grid-units(1) 0;
-  dt,
-  dd {
+  li {
     display: inline-block;
   }
-  dt {
+  .label {
     font-weight: bold;
     margin-right: grid-units(0.25);
   }
-  dd {
+  .value {
     margin-right: grid-units(1);
   }
 }
