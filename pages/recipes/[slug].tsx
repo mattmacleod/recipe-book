@@ -184,7 +184,7 @@ export const getStaticPaths: GetStaticPaths = () => {
   };
 };
 
-// GGet an individual recipe
+// Get an individual recipe
 export const getStaticProps: GetStaticProps<StaticProps> = ({ params }) => {
   const recipe = getRecipeBySlug((params as StaticPropsParams).slug);
   if (!recipe) {
