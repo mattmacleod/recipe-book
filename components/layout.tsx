@@ -12,7 +12,7 @@ interface Props {
 const Layout = (props: React.PropsWithChildren<Props>) => (
   <div className={ styles.container }>
     <Head>
-      <title>Recipe Book{ props.title ? ` – ${ props.title }` : '' }</title>
+      <title>Matt&apos;s Recipe Book{ props.title ? ` – ${ props.title }` : '' }</title>
       <meta name='description' content='A collection of recipes.' />
       <meta charSet='utf-8' />
     </Head>
@@ -25,7 +25,7 @@ const Layout = (props: React.PropsWithChildren<Props>) => (
       </Link>
       <h1 className={ styles.title }>
         <Link href='/'>
-          Recipe Book
+          Matt&apos;s Recipe Book
         </Link>
       </h1>
     </header>
@@ -45,7 +45,7 @@ const Layout = (props: React.PropsWithChildren<Props>) => (
         </Link>
         <span className={ styles.sep }>|</span>
         <a rel='noreferrer' target='_blank' href='https://github.com/mattmacleod/recipe-book'>
-          View on GitHub
+          GitHub
         </a>
       </nav>
       <div className={ styles.license }>

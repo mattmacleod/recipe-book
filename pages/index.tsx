@@ -5,20 +5,38 @@ import Link from 'next/link';
 
 import Layout from '/components/layout'
 
-import { Recipe } from '/lib/types';
-import { getAllRecipes } from '/lib/data';
+import { Category } from '/lib/types';
+import { getRecipesByCategory } from '/lib/data';
 
 interface StaticProps {
-  recipes: Recipe[];
+  categories: Record<string, Category>;
 }
 
-const Home = ({ recipes }: { recipes: Recipe[] }) => {
+const Home = ({ categories }: { categories: Record<string, Category> }) => {
   return (
     <Layout>
-      <h2 className={ styles.header }>Recipes</h2>
+      <section className={ styles.intro }>
+        <div className={ styles.introText }>
+          <header>
+            <h2>Hello there!</h2>
+          </header>
+          <p>Welcome to my recipe book. I&apos;m <a href='https://github.com/mattmacleod' target='_blank' rel='noreferrer'>@mattmacleod</a>, and this is a small web application I use to store and publish recipes I use. You can <Link href='/about'>read more about this site</Link> or choose one of the recipes below.</p>
+        </div>
+      </section>
+      <ul className={ styles.recipes }>
+        { Object.keys(categories).sort().map((k) => <Category key={ k } category={ categories[k] } />) }
+      </ul>
+    </Layout>
+  )
+}
+
+const Category = ({ category }: { category: Category }) => {
+  return (
+    <article className={ styles.category }>
+      <h2 className={ styles.header }>{ category.name }</h2>
       <ul className={ styles.recipes }>
         {
-          recipes.map((r) => (
+          category.recipes.map((r) => (
             <li key={ r.slug }>
               <Link href={ `/recipes/${ r.slug }` }>
                 { r.name }
@@ -27,14 +45,14 @@ const Home = ({ recipes }: { recipes: Recipe[] }) => {
           ))
         }
       </ul>
-    </Layout>
-  )
-}
+    </article>
+  );
+};
 
 export const getStaticProps: GetStaticProps<StaticProps> = () => {
   return {
     props: {
-      recipes: getAllRecipes(),
+      categories: getRecipesByCategory(),
     }
   };
 };

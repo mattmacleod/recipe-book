@@ -2,6 +2,7 @@
 
 name: Christmas Pudding
 tags:
+  - dessert
   - pudding
 servings: 10
 prepTime: 30 minutes (plus one week of soaking)

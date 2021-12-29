@@ -46,3 +46,9 @@ export interface QuantityWithNoUnit {
   unit: IngredientUnit.none;
   unitDescription: string;
 }
+
+export interface Category {
+  slug: string;
+  name: string;
+  recipes: Recipe[];
+}

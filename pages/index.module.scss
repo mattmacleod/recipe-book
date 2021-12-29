@@ -1,14 +1,32 @@
 @import 'styles/shared';
 
-.header {
-  @include font-size(28px);
+.intro {
+  background: $color-lightest-grey;
+  border-bottom: 1px $color-lighter-grey solid;
+  margin: grid-units(-1) grid-units(-1) grid-units(1);
+  padding: grid-units(1);
+
+  header {
+    @include font-size(32px);
+    margin-bottom: grid-units(0.5);
+    font-weight: 300;
+  }
+
+  .introText {
+    max-width: $size-max-content-width;
+    margin: 0 auto;
+  }
+
+  a {
+    color: $color-link;
+    text-decoration: underline;
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
 }
 
 .recipes {
-  a {
-    color: $color-primary;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+  max-width: $size-max-content-width;
+  margin: 0 auto;
 }

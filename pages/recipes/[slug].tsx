@@ -25,7 +25,7 @@ interface StaticPropsParams extends ParsedUrlQuery {
 
 const RecipePage = ({ recipe }: { recipe: Recipe }) => {
   return (
-    <Layout>
+    <Layout title={ recipe.name }>
       <recipeContext.Provider value={ recipe }>
         <article className={ styles.article }>
           <Header />

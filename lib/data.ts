@@ -6,7 +6,7 @@ import { remark } from 'remark';
 import html from 'remark-html';
 import { singular } from 'pluralize';
 
-import { IngredientGroup, Recipe, Ingredient, IngredientUnit, IngredientQuantity } from './types';
+import { IngredientGroup, Recipe, Ingredient, IngredientUnit, IngredientQuantity, Category } from './types';
 
 const recipeDirectory = path.join(process.cwd(), 'recipes');
 
@@ -37,6 +37,27 @@ export const md2html = (markdown: string) =>{
     .processSync(markdown)
     .toString();
 }
+
+// Get all recipe categories.
+export const getRecipesByCategory = (): Record<string, Category> => {
+  const recipes = getAllRecipes();
+  const categories: Record<string, Category> = {};
+
+  recipes.forEach((r) => {
+    r.tags.forEach((c) => {
+      const slug = sanitize(c).toLowerCase();
+      if (!categories[slug]) categories[slug] = {
+        slug: slug,
+        name: c,
+        recipes: [],
+      };
+
+      categories[c].recipes.push(r);
+    });
+  });
+
+  return categories;
+};
 
 // Given a recipe slug, load the content of the recipe from disk. Returns null
 // if the recipe doesn't exist.
