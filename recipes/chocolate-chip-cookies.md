@@ -3,7 +3,7 @@ name: Chocolate Chip Cookies
 tags:
   - dessert
   - biscuit
-servings: 16
+servings: 16 cookies
 prepTime: 15 minutes
 cookTime: 10 minutes
 equipment:

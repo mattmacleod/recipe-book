@@ -67,7 +67,7 @@ export const getRecipeBySlug = (slug: string): Recipe | null => {
     name: data.name,
     tags: data.tags || [],
     image: imageURL(data.image),
-    servings: data.servings || 1,
+    servings: parseServings(data.servings),
     prepTime: data.prepTime || null,
     cookTime: data.cookTime || null,
     equipment: data.equipment || [],
@@ -76,6 +76,26 @@ export const getRecipeBySlug = (slug: string): Recipe | null => {
     content: content ? md2html(content) : '',
   };
 }
+
+const parseServings = (servings: any): { count: number, description: string | null } => {
+  if (typeof servings === 'number') {
+    return {
+      count: servings,
+      description: null,
+    };
+
+  } else if (typeof servings === 'string') {
+    const match = servings.match(/^(\d+)\s*(.*)$/);
+
+    if (match) {
+      const count = parseInt(match[1]);
+      const description = count > 1 ? singular(match[2]) : match[2];
+      return { count, description };
+    }
+  }
+
+  throw new Error(`Unable to parse servings: ${ JSON.stringify(servings) }`);
+};
 
 // Parse raw ingredients from the recipe's front matter.
 const parseIngredients = (rawIngredients: any): IngredientGroup[] => {

@@ -89,7 +89,7 @@ const Stats = () => {
         Servings
       </th>
       <td>
-        { recipe.servings }
+        { formatServings(recipe) }
       </td>
     </tr>
   );
@@ -265,6 +265,15 @@ const formatIngredientName = (ingredient: Ingredient): string => {
     return ingredient.quantity === 1 ? ingredient.name : plural(ingredient.name);
   } else {
     return ingredient.name;
+  }
+}
+
+const formatServings = (recipe: Recipe): string => {
+  if (recipe.servings.description) {
+    const count = recipe.servings.count;
+    return `${ count } ${ count > 1 ? plural(recipe.servings.description) : recipe.servings.description }`;
+  } else {
+    return recipe.servings.count.toString();
   }
 }
 
