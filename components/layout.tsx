@@ -24,7 +24,9 @@ const Layout = (props: React.PropsWithChildren<Props>) => (
         </a>
       </Link>
       <h1 className={ styles.title }>
-        Recipe Book
+        <Link href='/'>
+          Recipe Book
+        </Link>
       </h1>
     </header>
 
