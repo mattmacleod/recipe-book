@@ -2,7 +2,7 @@ export interface Recipe {
   slug: string;
   name: string;
   tags: string[];
-  image: string;
+  image: string | null;
   servings: number;
   prepTime: string;
   cookTime: string;

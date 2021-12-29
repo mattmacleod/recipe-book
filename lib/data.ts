@@ -65,7 +65,7 @@ export const getRecipeBySlug = (slug: string): Recipe | null => {
     slug: sanitizedSlug,
     name: data.name,
     tags: data.tags || [],
-    image: data.image || null,
+    image: imageURL(data.image),
     servings: data.servings || 1,
     prepTime: data.prepTime || null,
     cookTime: data.cookTime || null,
@@ -162,3 +162,8 @@ const parseStringQuantity = (rawQuantity: string): { quantity: number, unit: Ing
     unit: IngredientUnit.other,
   }
 };
+
+const imageURL = (path: any): string | null => {
+  if (typeof path === 'string') return `/images/recipes/${ path }`;
+  return null;
+}

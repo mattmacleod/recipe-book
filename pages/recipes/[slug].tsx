@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ParsedUrlQuery } from 'querystring';
 
 import Layout from '/components/layout';
@@ -22,6 +23,7 @@ const RecipePage = ({ recipe }: { recipe: Recipe }) => {
     <Layout>
       <article className={ styles.article }>
         <Header recipe={ recipe } />
+        <HeaderImage recipe={ recipe } />
         <Stats recipe={ recipe } />
         <Intro recipe={ recipe } />
 
@@ -36,6 +38,16 @@ const RecipePage = ({ recipe }: { recipe: Recipe }) => {
         </div>
       </article>
     </Layout>
+  );
+};
+
+const HeaderImage = ({ recipe }: { recipe: Recipe }) => {
+  if (!recipe.image) return null;
+
+  return (
+    <div className={ styles.headerImage }>
+      <Image src={ recipe.image } alt={ recipe.name } layout='fill' objectFit='cover' />
+    </div>
   );
 };
 

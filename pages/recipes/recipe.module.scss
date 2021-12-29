@@ -5,6 +5,14 @@
   margin: 0 auto;
 }
 
+.headerImage {
+  height: min($size-max-content-width * 0.5, calc(50vw - grid-units(1)));
+  width: min($size-max-content-width, calc(100vw - grid-units(2)));
+  position: relative;
+  margin-top: grid-units(0.5);
+  box-shadow: 0 0 grid-units(1) rgba(0 0 0 / 0.2);
+}
+
 .header {
   h2 {
     @include font-size(28px);
@@ -84,7 +92,7 @@
 }
 
 .directions {
-  flex: 0 0 66%;
+  flex: 1 1 66%;
   h3 {
     font-weight: bold;
     margin-bottom: grid-units(0.5);
