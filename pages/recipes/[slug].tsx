@@ -133,6 +133,8 @@ const Stats = () => {
 const Equipment = () => {
   const recipe = useRecipe();
 
+  if (recipe.equipment.length === 0) return null;
+
   return (
     <section className={ styles.equipment }>
       <h3>Equipment</h3>
