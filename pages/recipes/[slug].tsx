@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ParsedUrlQuery } from 'querystring';
 import { createContext, useContext } from 'react';
+import { plural } from 'pluralize';
 
 import Layout from '/components/layout';
 
@@ -184,7 +185,7 @@ const IngredientItem = ({ ingredient }: { ingredient: Ingredient }) => {
         { formatIngredientQuantity(ingredient) }
       </span>
       <span className={ styles.name }>
-        { ingredient.name }
+        { formatIngredientName(ingredient) }
       </span>
     </li>
   );
@@ -258,6 +259,14 @@ const formatIngredientQuantity = (ingredient: Ingredient): string => {
       return ingredient.unitDescription;
   }
 };
+
+const formatIngredientName = (ingredient: Ingredient): string => {
+  if (ingredient.unit === IngredientUnit.count) {
+    return ingredient.quantity === 1 ? ingredient.name : plural(ingredient.name);
+  } else {
+    return ingredient.name;
+  }
+}
 
 // Return a list of all known recipes
 export const getStaticPaths: GetStaticPaths = () => {

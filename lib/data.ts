@@ -4,6 +4,7 @@ import sanitize from 'sanitize-filename';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
+import { singular } from 'pluralize';
 
 import { IngredientGroup, Recipe, Ingredient, IngredientUnit, IngredientQuantity } from './types';
 
@@ -99,11 +100,17 @@ const parseIngredientList = (ingredients: Record<string, any>[]): Ingredient[] =
     let quantity: IngredientQuantity;
 
     if (name === '0') {
-      // This is an arbitrary ingredient with no quanitity.
+      // This is an arbitrary ingredient with no quantity.
       quantity = parseQuantity(i);
       name = '';
     } else {
       quantity = parseQuantity(i[name]);
+    }
+
+    // Singularlize the name of the ingredient iff it's a "count" unit and the
+    // quantity is not == 1.
+    if (quantity.unit === IngredientUnit.count && quantity.quantity !== 1) {
+      name = singular(name);
     }
 
     return Object.assign({ name }, quantity);
@@ -163,7 +170,9 @@ const parseStringQuantity = (rawQuantity: string): IngredientQuantity => {
   const otherMatch = rawQuantity.match(/^([\d\.]+)\s*(.+)$/i);
   if (otherMatch) {
     const quantity = parseFloat(otherMatch[1]);
-    const unitDescription = otherMatch[2].toLowerCase();
+    const description = otherMatch[2].toLowerCase();
+    const unitDescription = quantity == 1 ? description : singular(description);
+
     return {
       unit: IngredientUnit.other,
       quantity,

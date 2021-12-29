@@ -22,7 +22,7 @@ ingredients:
   - baking powder: 1 tsp
   - zest: 1 lemon
   - large eggs: 3
-  - medium apple, grated: 1
+  - grated medium apple: 1
 steps:
   - First, soak the fruits and nuts. Place everything into a large bowl, cover with the liquid, and stir thoroughly. Cover and leave in a dark, cool place for about a week, topping up with liquid if needed.
   - After the fruit has soaked enough, it's time to cook the pudding. Start a pot of water boiling, large enough to hold the pudding basin you're using, and make sure the basin is throughly greased with a bit of butter.
