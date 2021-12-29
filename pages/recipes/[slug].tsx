@@ -178,17 +178,10 @@ const IngredientList = ({ ingredients }: { ingredients: Ingredient[] }) => {
 
 // An individual ingredient item
 const IngredientItem = ({ ingredient }: { ingredient: Ingredient }) => {
-  const unit = (
-    ingredient.unit === IngredientUnit.weight ? 'grams' :
-    ingredient.unit === IngredientUnit.volume ? 'ml' :
-    ''
-  )
-  const quantity = ingredient.quantity;
-
   return (
     <li>
       <span className={ styles.quantity }>
-        { quantity } { unit }
+        { formatIngredientQuantity(ingredient) }
       </span>
       <span className={ styles.name }>
         { ingredient.name }
@@ -218,6 +211,52 @@ const Intro = () => {
   return (
     <section className={ styles.intro } dangerouslySetInnerHTML={{ __html: recipe.content }} />
   );
+};
+
+// Extract the quantity and unit from an ingredient and format appropriately
+const formatIngredientQuantity = (ingredient: Ingredient): string => {
+  switch (ingredient.unit) {
+
+    // Format a weight as either grams or kilograms
+    case IngredientUnit.weight:
+      if (ingredient.quantity > 1000) {
+        return `${ ingredient.quantity / 1000 }kg`;
+      } else {
+        return `${ ingredient.quantity }g`;
+      }
+
+    // Format a volume as either millilitres or litres, with special handling
+    // for teaspoon and tablespoon sizes
+    case IngredientUnit.volume:
+      if (ingredient.quantity > 1000) {
+        return `${ ingredient.quantity / 1000 } litres`;
+
+      } else if (ingredient.quantity <= 60 && ingredient.quantity % 7.5 === 0) {
+        // Render teaspoons with 1/2 tbsp (7.5ml) precision
+        const val = ingredient.quantity / 15;
+        return `${ val } tbsp`;
+
+      } else if (ingredient.quantity <= 30 && ingredient.quantity % 1.25 === 0) {
+        // Render teaspoons with 1/4 tsp (1.25ml) precision
+        const val = ingredient.quantity / 5;
+        return `${ val } tsp`;
+
+      } else {
+        return `${ ingredient.quantity }ml`;
+      }
+
+    // Count just displays the number of items
+    case IngredientUnit.count:
+      return ingredient.quantity.toString();
+
+    // Other type displays the number of units with the unit description
+    case IngredientUnit.other:
+      return `${ ingredient.quantity } ${ ingredient.unitDescription }`;
+
+    // Render no specific quantity
+    case IngredientUnit.none:
+      return ingredient.unitDescription;
+  }
 };
 
 // Return a list of all known recipes

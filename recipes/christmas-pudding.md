@@ -18,7 +18,7 @@ ingredients:
   - suet (or vegetable equivalent): 125 g
   - dark brown muscovado sugar: 150 g
   - ground cinnamon: 1 tsp
-  - groud cloves: 0.5 tsp
+  - ground cloves: 0.5 tsp
   - baking powder: 1 tsp
   - zest: 1 lemon
   - large eggs: 3

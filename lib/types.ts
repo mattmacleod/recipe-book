@@ -17,15 +17,32 @@ export interface IngredientGroup {
   ingredients: Ingredient[];
 }
 
-export interface Ingredient {
-  name: string;
-  unit: IngredientUnit;
+export type IngredientQuantity = QuantityWithKnownUnit | QuantityWithUnknownUnit | QuantityWithNoUnit;
+
+export type Ingredient = {
+  name: string
+} & IngredientQuantity;
+
+export enum IngredientUnit {
+  weight,
+  volume,
+  count,
+  other,
+  none,
+}
+
+export interface QuantityWithKnownUnit {
+  unit: IngredientUnit.weight | IngredientUnit.volume | IngredientUnit.count;
   quantity: number;
 }
 
-export enum IngredientUnit {
-  weight, // Measured in grams
-  volume, // Measured in millilitres
-  count,  // Measued in units
-  other,  // Unknown – treated as opaque string
+export interface QuantityWithUnknownUnit {
+  unit: IngredientUnit.other;
+  quantity: number;
+  unitDescription: string;
+}
+
+export interface QuantityWithNoUnit {
+  unit: IngredientUnit.none;
+  unitDescription: string;
 }

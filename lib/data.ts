@@ -5,7 +5,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
-import { IngredientGroup, Recipe, Ingredient, IngredientUnit } from './types';
+import { IngredientGroup, Recipe, Ingredient, IngredientUnit, IngredientQuantity } from './types';
 
 const recipeDirectory = path.join(process.cwd(), 'recipes');
 
@@ -95,19 +95,22 @@ const parseIngredients = (rawIngredients: any): IngredientGroup[] => {
 
 const parseIngredientList = (ingredients: Record<string, any>[]): Ingredient[] => {
   return ingredients.map((i) => {
-    const name = Object.keys(i)[0];
-    const rawQuantity = i[name];
-    const { quantity, unit } = parseQuantity(rawQuantity);
+    let name = Object.keys(i)[0];
+    let quantity: IngredientQuantity;
 
-    return {
-      name,
-      quantity,
-      unit,
+    if (name === '0') {
+      // This is an arbitrary ingredient with no quanitity.
+      quantity = parseQuantity(i);
+      name = '';
+    } else {
+      quantity = parseQuantity(i[name]);
     }
+
+    return Object.assign({ name }, quantity);
   });
 };
 
-const parseQuantity = (rawQuantity: any) => {
+const parseQuantity = (rawQuantity: any): IngredientQuantity => {
   if (typeof rawQuantity === 'number') {
     return {
       quantity: rawQuantity,
@@ -120,12 +123,12 @@ const parseQuantity = (rawQuantity: any) => {
   }
 };
 
-const parseStringQuantity = (rawQuantity: string): { quantity: number, unit: IngredientUnit } => {
+const parseStringQuantity = (rawQuantity: string): IngredientQuantity => {
 
   // Find common weight types
-  const weightMatch = rawQuantity.match(/^(\d+)\s*(g|kg|grams|kilograms)$/i);
+  const weightMatch = rawQuantity.match(/^([\d\.]+)\s*(g|kg|grams|kilograms)$/i);
   if (weightMatch) {
-    const quantity = parseInt(weightMatch[1]);
+    const quantity = parseFloat(weightMatch[1]);
     switch (weightMatch[2].toLowerCase()) {
       case 'g':
       case 'grams':
@@ -137,9 +140,9 @@ const parseStringQuantity = (rawQuantity: string): { quantity: number, unit: Ing
   }
 
   // Find common volume types
-  const volumeMatch = rawQuantity.match(/^(\d+)\s*(l|ml|litre|millilitre|tsp|teaspoon|tbsp|tablespoon)s?$/i);
+  const volumeMatch = rawQuantity.match(/^([\d\.]+)\s*(l|ml|litre|millilitre|tsp|teaspoon|tbsp|tablespoon)s?$/i);
   if (volumeMatch) {
-    const quantity = parseInt(volumeMatch[1]);
+    const quantity = parseFloat(volumeMatch[1]);
     switch (volumeMatch[2].toLowerCase()) {
       case 'ml':
       case 'millilitre':
@@ -157,9 +160,21 @@ const parseStringQuantity = (rawQuantity: string): { quantity: number, unit: Ing
   }
 
   // Unkown type
+  const otherMatch = rawQuantity.match(/^([\d\.]+)\s*(.+)$/i);
+  if (otherMatch) {
+    const quantity = parseFloat(otherMatch[1]);
+    const unitDescription = otherMatch[2].toLowerCase();
+    return {
+      unit: IngredientUnit.other,
+      quantity,
+      unitDescription,
+    };
+  }
+
+  // Unitless type
   return {
-    quantity: 1,
-    unit: IngredientUnit.other,
+    unit: IngredientUnit.none,
+    unitDescription: rawQuantity,
   }
 };
 
