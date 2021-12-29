@@ -254,7 +254,8 @@ const formatIngredientQuantity = (ingredient: Ingredient): string => {
 
     // Other type displays the number of units with the unit description
     case IngredientUnit.other:
-      return `${ ingredient.quantity } ${ ingredient.unitDescription }`;
+      const description = ingredient.quantity === 1 ? ingredient.unitDescription : plural(ingredient.unitDescription);
+      return `${ ingredient.quantity } ${ description }`;
 
     // Render no specific quantity
     case IngredientUnit.none:
