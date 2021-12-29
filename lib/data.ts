@@ -59,8 +59,7 @@ export const getRecipeBySlug = (slug: string): Recipe | null => {
 
   // Validate the content of the data and raise an error at this stage if it is
   // not valid.
-  if (!data.name) throw new Error(`Recipe ${ slug } is missing a name.`);
-  // TODO: additional validation
+  validateRecipeData(data);
 
   return {
     slug: sanitizedSlug,
@@ -76,6 +75,18 @@ export const getRecipeBySlug = (slug: string): Recipe | null => {
     content: content ? md2html(content) : '',
   };
 }
+
+// Validate data as being suitable for a recipe. Throws if it isn't.
+const validateRecipeData = (data: Record<string, any>) => {
+  if (!data.name || !(typeof data.name === 'string')) throw new Error('Recipe must have a valid name');
+  if (data.tags && !(Array.isArray(data.tags))) throw new Error('Recipe tags must be a list');
+  if (data.image && !(typeof data.image === 'string')) throw new Error('Recipe contains inalid image path');
+  if (data.prepTime && !(typeof data.prepTime === 'string')) throw new Error('Recipe must have valid prep time');
+  if (data.cookTime && !(typeof data.cookTime === 'string')) throw new Error('Recipe must have valid cook time');
+  if (data.equipment && !(Array.isArray(data.equipment))) throw new Error('Recipe equipment must be a list');
+  if (!data.steps && !(Array.isArray(data.steps))) throw new Error('Recipe must contain a list of steps');
+  if (data.content && !(typeof data.content === 'string')) throw new Error('Recipe must contain vaild content');
+};
 
 const parseServings = (servings: any): { count: number, description: string | null } => {
   if (typeof servings === 'number') {

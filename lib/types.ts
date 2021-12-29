@@ -3,7 +3,7 @@ export interface Recipe {
   name: string;
   tags: string[];
   image: string | null;
-  servings: number;
+  servings: { count: number; description: string | null };
   prepTime: string;
   cookTime: string;
   equipment: string[];
