@@ -1,8 +1,7 @@
 ---
 name: Negroni Cheesecake
-tags:
-  - dessert
-  - cake
+categories:
+  - cakes
 image: negroni-cheesecake.jpg
 servings: 12 slices
 prepTime: 30 minutes active, 4 hours chilling, 3 hours setting

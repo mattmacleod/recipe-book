@@ -5,6 +5,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 import { singular } from 'pluralize';
+import _ from 'lodash';
 
 import { IngredientGroup, Recipe, Ingredient, IngredientUnit, IngredientQuantity, Category } from './types';
 
@@ -44,7 +45,7 @@ export const getRecipesByCategory = (): Record<string, Category> => {
   const categories: Record<string, Category> = {};
 
   recipes.forEach((r) => {
-    r.tags.forEach((c) => {
+    r.categoryNames.forEach((c) => {
       const slug = sanitize(c).toLowerCase();
       if (!categories[slug]) categories[slug] = {
         slug: slug,
@@ -54,6 +55,11 @@ export const getRecipesByCategory = (): Record<string, Category> => {
 
       categories[c].recipes.push(r);
     });
+  });
+
+  // Sort recipes by name
+  _.forEach(categories, (c) => {
+    c.recipes = _.sortBy(c.recipes, 'name');
   });
 
   return categories;
@@ -85,7 +91,7 @@ export const getRecipeBySlug = (slug: string): Recipe | null => {
   return {
     slug: sanitizedSlug,
     name: data.name,
-    tags: data.tags || [],
+    categoryNames: data.categories || [],
     image: imageURL(data.image),
     servings: parseServings(data.servings),
     prepTime: data.prepTime || null,
@@ -100,7 +106,7 @@ export const getRecipeBySlug = (slug: string): Recipe | null => {
 // Validate data as being suitable for a recipe. Throws if it isn't.
 const validateRecipeData = (data: Record<string, any>) => {
   if (!data.name || !(typeof data.name === 'string')) throw new Error('Recipe must have a valid name');
-  if (data.tags && !(Array.isArray(data.tags))) throw new Error('Recipe tags must be a list');
+  if (data.categories && !(Array.isArray(data.categories))) throw new Error('Recipe categories must be a list');
   if (data.image && !(typeof data.image === 'string')) throw new Error('Recipe contains inalid image path');
   if (data.prepTime && !(typeof data.prepTime === 'string')) throw new Error('Recipe must have valid prep time');
   if (data.cookTime && !(typeof data.cookTime === 'string')) throw new Error('Recipe must have valid cook time');

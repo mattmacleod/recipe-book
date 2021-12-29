@@ -1,7 +1,7 @@
 export interface Recipe {
   slug: string;
   name: string;
-  tags: string[];
+  categoryNames: string[];
   image: string | null;
   servings: { count: number; description: string | null };
   prepTime: string;

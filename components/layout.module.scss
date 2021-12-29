@@ -28,12 +28,13 @@
     @include font-size(24px, 1);
     font-weight: bold;
     line-height: $size-header;
-    color: white;
+    a {
+      color: white;
+      text-decoration: none;
+    }
   }
 
-  @include print {
-    display: none;
-  }
+  @include printHide;
 }
 
 .main {
@@ -47,29 +48,33 @@
   padding: grid-units(1);
   background: $color-footer-background;
   color: $color-lightest-grey;
+
   a {
+    text-decoration: none;
     color: $color-footer-link;
     &:hover {
       text-decoration: underline;
-      filter: brightness(1.2);
     }
   }
+
   .links {
     flex: 1 0;
   }
+
   .sep {
     color: $color-mid-grey;
     margin: 0 grid-units(0.25);
   }
+
   .license {
     flex: 0 0;
     padding: 2px grid-units(0.5) 0;
   }
+
   .credit {
     flex: 0 0;
     white-space: nowrap
   }
-  @include print {
-    display: none;
-  }
+
+  @include printHide;
 }

@@ -39,3 +39,14 @@
     @content;
   }
 }
+
+@mixin printHide {
+  @include print {
+    display: none;
+  }
+}
+
+@mixin centeredBlock {
+  max-width: $size-max-content-width;
+  margin: 0 auto;
+}

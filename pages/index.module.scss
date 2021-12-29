@@ -1,32 +1,43 @@
 @import 'styles/shared';
 
 .intro {
-  background: $color-lightest-grey;
-  border-bottom: 1px $color-lighter-grey solid;
   margin: grid-units(-1) grid-units(-1) grid-units(1);
   padding: grid-units(1);
+  border-bottom: 1px $color-lighter-grey solid;
+  background: $color-lightest-grey;
 
   header {
     @include font-size(32px);
     margin-bottom: grid-units(0.5);
-    font-weight: 300;
   }
 
   .introText {
-    max-width: $size-max-content-width;
-    margin: 0 auto;
-  }
-
-  a {
-    color: $color-link;
-    text-decoration: underline;
-    &:hover {
-      filter: brightness(1.2);
-    }
+    @include centeredBlock;
   }
 }
 
-.recipes {
-  max-width: $size-max-content-width;
-  margin: 0 auto;
+.categories {
+  @include centeredBlock;
+  display: flex;
+  flex-wrap: wrap;
+  gap: grid-units(1);
+
+  h3 {
+    font-weight: bold;
+    @include font-size(24px);
+  }
+
+  .category {
+    flex: 1 0 33%;
+    min-width: 300px;
+    margin-bottom: grid-units(1);
+    padding: grid-units(0.5);
+    .header {
+      border-bottom: 1px $color-border solid;
+    }
+  }
+
+  .recipes {
+    margin-top: grid-units(0.5);
+  }
 }
