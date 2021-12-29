@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ParsedUrlQuery } from 'querystring';
+import { createContext, useContext } from 'react';
 
 import Layout from '/components/layout';
 
@@ -9,6 +10,9 @@ import { getAllRecipes, getRecipeBySlug } from '/lib/data';
 import { Recipe, Ingredient, IngredientUnit } from '/lib/types';
 
 import styles from './recipe.module.scss';
+
+const recipeContext = createContext<Recipe | null>(null);
+const useRecipe = () => useContext(recipeContext)!;
 
 interface StaticProps {
   recipe: Recipe;
@@ -21,27 +25,31 @@ interface StaticPropsParams extends ParsedUrlQuery {
 const RecipePage = ({ recipe }: { recipe: Recipe }) => {
   return (
     <Layout>
-      <article className={ styles.article }>
-        <Header recipe={ recipe } />
-        <HeaderImage recipe={ recipe } />
-        <Stats recipe={ recipe } />
-        <Intro recipe={ recipe } />
+      <recipeContext.Provider value={ recipe }>
+        <article className={ styles.article }>
+          <Header />
+          <HeaderImage />
+          <Stats />
+          <Intro />
 
-        <div className={ styles.mainContent }>
+          <div className={ styles.mainContent }>
 
-          <div className={ styles.requirements }>
-            <Equipment recipe={ recipe } />
-            <Ingredients recipe={ recipe } />
+            <div className={ styles.requirements }>
+              <Equipment />
+              <Ingredients />
+            </div>
+
+            <Directions />
           </div>
-
-          <Directions recipe={ recipe } />
-        </div>
-      </article>
+        </article>
+      </recipeContext.Provider>
     </Layout>
   );
 };
 
-const HeaderImage = ({ recipe }: { recipe: Recipe }) => {
+const HeaderImage = () => {
+  const recipe = useRecipe();
+
   if (!recipe.image) return null;
 
   return (
@@ -51,7 +59,9 @@ const HeaderImage = ({ recipe }: { recipe: Recipe }) => {
   );
 };
 
-const Header = ({ recipe }: { recipe: Recipe }) => {
+const Header = () => {
+  const recipe = useRecipe();
+
   return (
     <header className={ styles.header }>
       <div className={ styles.breadcrumbs }>
@@ -66,7 +76,9 @@ const Header = ({ recipe }: { recipe: Recipe }) => {
   );
 };
 
-const Stats = ({ recipe }: { recipe: Recipe }) => {
+const Stats = () => {
+  const recipe = useRecipe();
+
   const servings = recipe.servings && (
     <li>
       <span className={ styles.label }>
@@ -111,7 +123,9 @@ const Stats = ({ recipe }: { recipe: Recipe }) => {
   );
 };
 
-const Equipment = ({ recipe }: { recipe: Recipe }) => {
+const Equipment = () => {
+  const recipe = useRecipe();
+
   return (
     <section className={ styles.equipment }>
       <h3>Equipment</h3>
@@ -122,7 +136,9 @@ const Equipment = ({ recipe }: { recipe: Recipe }) => {
   );
 };
 
-const Ingredients = ({ recipe }: { recipe: Recipe }) => {
+const Ingredients = () => {
+  const recipe = useRecipe();
+
   const ingredients = recipe.ingredients.length === 1 ? (
     <IngredientList ingredients={ recipe.ingredients[0].ingredients } />
     ) : (
@@ -171,7 +187,9 @@ const IngredientItem = ({ ingredient }: { ingredient: Ingredient }) => {
   );
 };
 
-const Directions = ({ recipe }: { recipe: Recipe }) => {
+const Directions = () => {
+  const recipe = useRecipe();
+
   return (
     <section className={ styles.directions }>
       <h3>Directions</h3>
@@ -182,7 +200,9 @@ const Directions = ({ recipe }: { recipe: Recipe }) => {
   );
 };
 
-const Intro = ({ recipe }: { recipe: Recipe }) => {
+const Intro = () => {
+  const recipe = useRecipe();
+
   return (
     <section className={ styles.intro } dangerouslySetInnerHTML={{ __html: recipe.content }} />
   );
