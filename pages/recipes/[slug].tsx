@@ -47,6 +47,7 @@ const RecipePage = ({ recipe }: { recipe: Recipe }) => {
   );
 };
 
+// Image block at the top of the page
 const HeaderImage = () => {
   const recipe = useRecipe();
 
@@ -59,12 +60,13 @@ const HeaderImage = () => {
   );
 };
 
+// Header element containing the recipe name and link to the home page
 const Header = () => {
   const recipe = useRecipe();
 
   return (
     <header className={ styles.header }>
-      <div className={ styles.breadcrumbs }>
+      <div className={ styles.backLink }>
         <Link href='/'>
           <a>
             &larr; Home
@@ -76,53 +78,57 @@ const Header = () => {
   );
 };
 
+// Stats block containing the recipe time and serving count
 const Stats = () => {
   const recipe = useRecipe();
 
   const servings = recipe.servings && (
-    <li>
-      <span className={ styles.label }>
+    <tr>
+      <th>
         Servings
-      </span>
-      <span className={ styles.value }>
+      </th>
+      <td>
         { recipe.servings }
-      </span>
-    </li>
+      </td>
+    </tr>
   );
 
   const prepTime = recipe.prepTime && (
-    <li>
-      <span className={ styles.label }>
+    <tr>
+      <th>
         Prep time
-      </span>
-      <span className={ styles.value }>
+      </th>
+      <td>
         { recipe.prepTime }
-      </span>
-    </li>
+      </td>
+    </tr>
   );
 
   const cookTime = recipe.cookTime && (
-    <li>
-      <span className={ styles.label }>
+    <tr>
+      <th>
         Cooking time
-      </span>
-      <span className={ styles.value }>
+      </th>
+      <td>
         { recipe.cookTime }
-      </span>
-    </li>
+      </td>
+    </tr>
   );
 
   return (
     <section className={ styles.stats }>
-      <ul>
-        { servings }
-        { prepTime }
-        { cookTime }
-      </ul>
+      <table>
+        <tbody>
+          { servings }
+          { prepTime }
+          { cookTime }
+        </tbody>
+      </table>
     </section>
   );
 };
 
+// List of required equipment
 const Equipment = () => {
   const recipe = useRecipe();
 
@@ -136,6 +142,8 @@ const Equipment = () => {
   );
 };
 
+
+// List of required ingredients, sorted by group as required
 const Ingredients = () => {
   const recipe = useRecipe();
 
@@ -159,6 +167,7 @@ const Ingredients = () => {
   );
 };
 
+// An individual list of ingredients for a single group
 const IngredientList = ({ ingredients }: { ingredients: Ingredient[] }) => {
   return (
     <ul>
@@ -167,6 +176,7 @@ const IngredientList = ({ ingredients }: { ingredients: Ingredient[] }) => {
   );
 };
 
+// An individual ingredient item
 const IngredientItem = ({ ingredient }: { ingredient: Ingredient }) => {
   const unit = (
     ingredient.unit === IngredientUnit.weight ? 'grams' :
@@ -187,6 +197,7 @@ const IngredientItem = ({ ingredient }: { ingredient: Ingredient }) => {
   );
 };
 
+// The overall recipe directions
 const Directions = () => {
   const recipe = useRecipe();
 
@@ -200,6 +211,7 @@ const Directions = () => {
   );
 };
 
+// A short introduction to the recipe
 const Intro = () => {
   const recipe = useRecipe();
 
