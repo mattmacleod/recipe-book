@@ -43,6 +43,10 @@ const Layout = (props: React.PropsWithChildren<Props>) => (
         <Link href='/about'>
           About
         </Link>
+        <span className={ styles.sep }>|</span>
+        <a rel='noreferrer' target='_blank' href='https://github.com/mattmacleod/recipe-book'>
+          View on GitHub
+        </a>
       </nav>
       <div className={ styles.license }>
         <a rel='noreferrer license' href='https://creativecommons.org/licenses/by/2.0/' target='_blank'>
