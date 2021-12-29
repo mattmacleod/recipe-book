@@ -1,5 +1,5 @@
 ---
-name: Negroni cheesecake
+name: Negroni Cheesecake
 tags:
   - dessert
   - cake

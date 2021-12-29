@@ -3,7 +3,6 @@ name: Chocolate Chip Cookies
 tags:
   - dessert
   - biscuit
-image: chocolate-chip-cookies.jpg
 servings: 16
 prepTime: 15 minutes
 cookTime: 10 minutes

@@ -3,7 +3,6 @@
 name: Christmas Pudding
 tags:
   - pudding
-image: xmas_pudding.jpg
 servings: 10
 prepTime: 30 minutes (plus one week of soaking)
 cookTime: 5 hours in advance, plus 3 hours before serving

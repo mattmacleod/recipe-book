@@ -1,7 +1,6 @@
 ---
 name: Sesame Chicken
 tags: main
-image: xmas_pudding.jpg
 servings: 4
 prepTime: 30 minutes
 cookTime: 30 minutes
