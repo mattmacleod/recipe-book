@@ -12,6 +12,11 @@ body {
   font-size: $base-font-size;
   font-weight: normal;
   line-height: $base-line-height;
+  @include print {
+    width: 21cm;
+    background: white;
+    color: black;
+  }
 }
 
 a {

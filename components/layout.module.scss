@@ -30,6 +30,10 @@
     line-height: $size-header;
     color: white;
   }
+
+  @include print {
+    display: none;
+  }
 }
 
 .main {
@@ -64,5 +68,8 @@
   .credit {
     flex: 0 0;
     white-space: nowrap
+  }
+  @include print {
+    display: none;
   }
 }

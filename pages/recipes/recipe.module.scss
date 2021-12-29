@@ -11,6 +11,9 @@
   position: relative;
   margin-bottom: grid-units(1);
   box-shadow: 0 0 grid-units(1) rgba(0 0 0 / 0.2);
+  @include print {
+    display: none;
+  }
 }
 
 .header {
@@ -21,6 +24,9 @@
   }
   .backLink {
     @include font-size(14px);
+    @include print {
+      display: none;
+    }
     a {
       color: $color-primary;
       &:hover {
