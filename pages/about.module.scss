@@ -1,0 +1,18 @@
+@import 'styles/shared';
+
+.content {
+  max-width: $size-max-content-width;
+  margin: 0 auto;
+
+  .header {
+    @include font-size(28px);
+    margin-bottom: grid-units(1);
+  }
+  p {
+    margin-bottom: grid-units(1);
+  }
+  a {
+    color: $color-primary;
+    text-decoration: underline;
+  }
+}

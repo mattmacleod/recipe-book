@@ -44,6 +44,12 @@ const Layout = (props: React.PropsWithChildren<Props>) => (
           About
         </Link>
       </nav>
+      <div className={ styles.license }>
+        <a rel='noreferrer license' href='https://creativecommons.org/licenses/by/2.0/' target='_blank'>
+          { /* eslint-disable-next-line @next/next/no-img-element */}
+          <img alt='Creative Commons License' src='https://i.creativecommons.org/l/by/2.0/80x15.png' />
+        </a>
+      </div>
       <div className={ styles.credit }>
         Built by <a href='https://github.com/mattmacleod' target='_blank' rel='noreferrer'>
           @mattmacleod

@@ -57,6 +57,10 @@
     color: $color-mid-grey;
     margin: 0 grid-units(0.25);
   }
+  .license {
+    flex: 0 0;
+    padding: 2px grid-units(0.5) 0;
+  }
   .credit {
     flex: 0 0;
     white-space: nowrap
