@@ -9,8 +9,8 @@
 }
 
 .headerImage {
-  height: min($size-max-content-width * 0.5, calc(50vw - grid-units(1)));
-  width: min($size-max-content-width, calc(100vw - grid-units(2)));
+  height: min(($size-max-content-width - grid-units(2)) * 0.5, calc(50vw - grid-units(1)));
+  width: min($size-max-content-width - grid-units(2), calc(100vw - grid-units(2)));
   position: relative;
   margin-bottom: grid-units(1);
   box-shadow: 0 0 grid-units(1) rgba(0 0 0 / 0.2);
