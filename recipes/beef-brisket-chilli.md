@@ -1,5 +1,6 @@
 ---
 name: Beef Brisket Chilli
+image: beef-brisket-chilli.jpg
 categories:
   - main courses
 servings: 10
@@ -34,7 +35,7 @@ steps:
   - Slice the rehydrated chillies, and add to the onion mixture along with half of the fresh chillies, the garlic, cocoa powder, and some salt and pepper. Stir to combine.
   - Pour in the coffee, tinned tomatoes, and the molasses. Break the tomatoes up a little with a spoon, then add the brisket and cover. Leave for about three hours, simmering gently and stirring occasionally.
   - When the meat is cooked, it should basically be falling apart. Take two forks, and gently pull apart the chunks.
-  - Add the bell peppers, then drain and add the beeans. Stir to combine, then leave simmering uncovered for about 30 minutes.
+  - Add the bell peppers, then drain and add the beans. Stir to combine, then leave simmering uncovered for about 30 minutes.
   -  Add the lime juice, then have a taste and add additional seasoning as required. Serve with rice or tortillas, along with sour cream, guacamole, cheese, and all the usual fixins.
 
 ---

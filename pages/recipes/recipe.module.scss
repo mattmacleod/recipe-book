@@ -15,6 +15,12 @@
   margin-bottom: grid-units(1);
   box-shadow: 0 0 grid-units(1) rgba(0 0 0 / 0.2);
   @include printHide;
+
+  @include breakpoints(small) {
+    height: min(($size-max-content-width - grid-units(1)) * 0.5, calc(50vw - grid-units(0.5)));
+    width: min($size-max-content-width - grid-units(1), calc(100vw - grid-units(1)));
+    }
+
 }
 
 .header {
