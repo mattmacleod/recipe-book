@@ -1,23 +1,30 @@
 @import 'styles/shared';
 
 .intro {
-  margin: grid-units(-1) grid-units(-1) grid-units(1);
-  padding: grid-units(1);
+  margin-bottom: grid-units(1);
   border-bottom: 1px $color-lighter-grey solid;
   background: $color-lightest-grey;
 
   header {
-    @include font-size(32px);
-    margin-bottom: grid-units(0.5);
+    @include font-size(28px, 1);
+    margin-bottom: grid-units(1);
   }
 
   .introText {
     @include centeredBlock;
+    padding: grid-units(1.5) grid-units(1);
+    @include breakpoints(small) {
+      padding: grid-units(1) grid-units(0.5);
+    }
   }
 }
 
 .categories {
   @include centeredBlock;
+  padding: 0 grid-units(1) grid-units(1);
+  @include breakpoints(small) {
+    padding: 0 grid-units(0.5) grid-units(1);
+  }
   display: flex;
   flex-wrap: wrap;
   gap: grid-units(1);
@@ -28,10 +35,8 @@
   }
 
   .category {
-    flex: 1 0 33%;
+    flex: 1 0 30%;
     min-width: 300px;
-    margin-bottom: grid-units(1);
-    padding: grid-units(0.5);
     .header {
       border-bottom: 1px $color-border solid;
     }

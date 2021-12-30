@@ -2,10 +2,14 @@
 
 .content {
   @include centeredBlock;
+  padding: grid-units(1.5) grid-units(1);
+  @include breakpoints(small) {
+    padding: grid-units(1) grid-units(0.5);
+  }
 
   .header {
-    @include font-size(28px);
-    margin-bottom: grid-units(0.5);
+    @include font-size(28px, 1);
+    margin-bottom: grid-units(1);
   }
 
   p {

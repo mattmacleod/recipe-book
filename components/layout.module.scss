@@ -39,7 +39,6 @@
 
 .main {
   flex: 1 0;
-  padding: grid-units(1);
 }
 
 .footer {
@@ -48,6 +47,11 @@
   padding: grid-units(1);
   background: $color-footer-background;
   color: $color-lightest-grey;
+  overflow: hidden;
+
+  @include breakpoints(small) {
+    @include font-size(14px, 1);
+  }
 
   a {
     text-decoration: none;
@@ -64,11 +68,6 @@
   .sep {
     color: $color-mid-grey;
     margin: 0 grid-units(0.25);
-  }
-
-  .license {
-    flex: 0 0;
-    padding: 2px grid-units(0.5) 0;
   }
 
   .credit {

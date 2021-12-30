@@ -2,6 +2,10 @@
 
 .article {
   @include centeredBlock;
+  padding: grid-units(1);
+  @include breakpoints(small) {
+    padding: grid-units(0.5);
+  }
 }
 
 .headerImage {
