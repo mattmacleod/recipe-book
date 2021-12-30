@@ -1,34 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Matt's recipe book
 
-## Getting Started
+This is a small web application for storing and publishing recipes I use. It contains a variety of different recipes that I've been making over the years, and they come from lots of different sources.
 
-First, run the development server:
+I built this site to keep track of all the things I've made, so that I can remind myself how to cook them in the future and share them with others.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+This site is inspired by [chowdown.io](https://chowdown.io), which is a similar project using a different implementation and backend.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The content on this site is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/). This means that you can use it for any purpose, so long as you give attribution. Please link back to this site if you do use these recipes elsewhere. The code itself is under an [MIT license](https://raw.githubusercontent.com/mattmacleod/recipe-book/main/LICENSE.txt).
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+You can view the source code of this site—including all of the recipes—on GitHub. Please feel free to raise a PR if you want to add a recipe to fix anything!
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+From a technical perspective, this site is built using Next.js, which is a framework for building modern web applications. Recipes are stored in plain-text Markdown format and rendered to a static HTML page. You can compare the [Markdown recipe](https://raw.githubusercontent.com/mattmacleod/recipe-book/main/recipes/negroni-cheesecake.md) with the [rendered content](https://recipes.matt-m.co.uk/recipes/negroni-cheesecake) to see how this works.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+I plan to add some more useful features to this site as I get the chance, such as automatic unit conversions, quantity scaling, and so on – but for the moment I just wanted to build a place to let me store and share recipes. So please enjoy!
