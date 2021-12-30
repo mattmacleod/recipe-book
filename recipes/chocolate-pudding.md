@@ -32,7 +32,7 @@ steps:
   - Add all of the pudding ingredients to a food processor and pulse until smooth – or do it by hand. Scrape down a couple of times to ensure everything is thoroughly mixed.
   - Pour the batter into the pudding basin, then grease a square of foil and wrap tightly around the top of the basin before putting the lid on.
   - Place the pudding in the boiling water, pop the lid on the pot, and steam for about 90 minutes. The pudding will rise almost to the top.
-  - While the pudding is steaming, make the sause. Start by putting all of the ingredients in a small saucepan and placing over a low heat, stirring now and again until all melted. Remove from the heat and wisk until you have a glossy, smooth sauce.
+  - While the pudding is steaming, make the sauce. Start by putting all of the ingredients in a small saucepan and placing over a low heat, stirring now and again until all melted. Remove from the heat and whisk until you have a glossy, smooth sauce.
   - When the pudding has cooked, remove from the pan, then remove the lid and foil. Check that the pudding is cooked through by inserting a knife or wooden skewer into the center – when you remove it, it should come out mostly dry and not have any uncooked batter on the end. Return to the pot and continue steaming for another 10 minutes if required, or until it's ready.
   - Once cooked, leave to cool for a few minutes, then cover with a plate and flip over to release the pudding.
   - Pour half of the sauce over the pudding, and serve the rest alongside. Also goes great with ice cream.

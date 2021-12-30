@@ -21,6 +21,6 @@ steps:
 
 ---
 
-This is flaky pastry—sometimes called "rough puff"—that's a good substitute for puff pastry in small baked goods, like sausage rolls or small pies. The secret is using frozen, grated butter, allowing for the fat to remain mostly intact in the dough. When it bakes, the small pieces of fat help to create a crumbly, latered structure.
+This is flaky pastry—sometimes called "rough puff"—that's a good substitute for puff pastry in small baked goods, like sausage rolls or small pies. The secret is using frozen, grated butter, allowing for the fat to remain mostly intact in the dough. When it bakes, the small pieces of fat help to create a crumbly, layered structure.
 
 You can use this same recipe with the addition of 70g caster sugar to make a sweet short pastry that's good for mince pies in particular.
