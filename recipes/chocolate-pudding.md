@@ -1,6 +1,6 @@
 ---
 
-name: Chocolate Pudding
+name: Chocolate pudding
 categories:
   - puddings
 servings: 10

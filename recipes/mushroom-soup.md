@@ -1,6 +1,6 @@
 ---
 
-name: Creamy Mushroom Soup
+name: Creamy mushroom soup
 categories:
   - soups
 servings: 6

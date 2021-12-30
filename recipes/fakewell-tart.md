@@ -1,6 +1,6 @@
 ---
 
-name: Fakewell Tart
+name: Fakewell tart
 categories:
   - baked goods
 servings: 16

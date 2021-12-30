@@ -27,7 +27,8 @@
   margin-bottom: grid-units(0.5);
 
   h2 {
-    @include font-size(28px);
+    @include font-size(28px, 1.25);
+    padding: grid-units(0.5) 0;
     font-weight: bold;
   }
 

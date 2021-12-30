@@ -1,5 +1,5 @@
 ---
-name: Negroni Cheesecake
+name: Negroni cheesecake
 categories:
   - cakes
 image: negroni-cheesecake.jpg

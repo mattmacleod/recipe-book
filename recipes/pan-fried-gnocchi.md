@@ -1,5 +1,5 @@
 ---
-name: Pan-fried Gnocchi with garlic and sage
+name: Pan-fried gnocchi with garlic and sage
 categories:
   - main courses
 servings: 3

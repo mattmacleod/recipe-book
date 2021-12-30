@@ -1,5 +1,5 @@
 ---
-name: Gluten-free Chocolate Brownies
+name: Gluten-free chocolate brownies
 categories:
   - baked goods
 servings: 1 tray

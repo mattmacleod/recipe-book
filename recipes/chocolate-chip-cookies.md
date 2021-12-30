@@ -1,5 +1,5 @@
 ---
-name: Chocolate Chip Cookies
+name: Chocolate chip cookies
 categories:
   - baked goods
 servings: 16 cookies

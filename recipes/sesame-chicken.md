@@ -1,5 +1,5 @@
 ---
-name: Sesame Chicken
+name: Sesame chicken
 categories:
   - main courses
 servings: 4

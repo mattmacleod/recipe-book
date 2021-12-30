@@ -1,5 +1,5 @@
 ---
-name: Beef Brisket Chilli
+name: Beef brisket chilli
 image: beef-brisket-chilli.jpg
 categories:
   - main courses

@@ -1,6 +1,6 @@
 ---
 
-name: Hot Artichoke Dip
+name: Hot artichoke dip
 categories:
   - sauces and dips
 servings: 5

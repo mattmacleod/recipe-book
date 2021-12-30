@@ -1,6 +1,6 @@
 ---
 
-name: Tomato Mozzarella Dip
+name: Warm tomato and mozzarella dip
 categories:
   - sauces and dips
 servings: 5

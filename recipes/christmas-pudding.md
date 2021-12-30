@@ -1,6 +1,6 @@
 ---
 
-name: Christmas Pudding
+name: Christmas pudding
 categories:
   - puddings
 servings: 10
