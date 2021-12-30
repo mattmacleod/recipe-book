@@ -23,9 +23,9 @@ const Home = ({ categories }: { categories: Record<string, Category> }) => {
           <p>Welcome to my recipe book. I&apos;m <a href='https://github.com/mattmacleod' target='_blank' rel='noreferrer'>@mattmacleod</a>, and this is a small web application I use to store and publish recipes I use. You can <Link href='/about'>read more about this site</Link> or choose one of the recipes below.</p>
         </div>
       </section>
-      <ul className={ styles.categories }>
+      <div className={ styles.categories }>
         { Object.keys(categories).sort().map((k) => <Category key={ k } category={ categories[k] } />) }
-      </ul>
+      </div>
     </Layout>
   )
 }

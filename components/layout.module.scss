@@ -47,7 +47,6 @@
   padding: grid-units(1);
   background: $color-footer-background;
   color: $color-lightest-grey;
-  overflow: hidden;
 
   @include breakpoints(small) {
     @include font-size(14px, 1);

@@ -19,7 +19,7 @@ const Layout = (props: React.PropsWithChildren<Props>) => (
 
     <header className={ styles.header }>
       <Link href='/'>
-        <a className={ styles.logo }>
+        <a className={ styles.logo } aria-label='Home'>
           <MealIcon />
         </a>
       </Link>
@@ -39,11 +39,11 @@ const Layout = (props: React.PropsWithChildren<Props>) => (
         <Link href='/'>
           Home
         </Link>
-        <span className={ styles.sep }>|</span>
+        <span className={ styles.sep } aria-hidden>|</span>
         <Link href='/about'>
           About
         </Link>
-        <span className={ styles.sep }>|</span>
+        <span className={ styles.sep } aria-hidden>|</span>
         <a rel='noreferrer' target='_blank' href='https://github.com/mattmacleod/recipe-book'>
           GitHub
         </a>
