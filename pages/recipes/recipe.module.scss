@@ -134,10 +134,15 @@
     display: block;
   }
 
-  .ingredients,
   .directions {
     padding-top: grid-units(1);
     margin-top: grid-units(1);
     border-top: 1px $color-border solid;
+  }
+
+  .equipment {
+    padding-bottom: grid-units(1);
+    margin-bottom: grid-units(1);
+    border-bottom: 1px $color-border solid;
   }
 }
