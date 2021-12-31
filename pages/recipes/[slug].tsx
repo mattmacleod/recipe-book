@@ -27,7 +27,10 @@ const RecipePage = ({ recipe }: { recipe: Recipe }) => {
   return (
     <Layout title={ recipe.name }>
       <recipeContext.Provider value={ recipe }>
-        <article className={ styles.article }>
+        <article className={ styles.article } itemScope itemType='https://schema.org/Recipe'>
+          { recipe.categoryNames.map((categoryName) => <meta itemProp='recipeCategory' content={ categoryName } key={ categoryName }/>) }
+          <meta itemProp='license' content='https://creativecommons.org/licenses/by/4.0/' />
+
           <Header />
           <HeaderImage />
           <Stats />
@@ -74,7 +77,7 @@ const Header = () => {
           </a>
         </Link>
       </div>
-      <h2>{ recipe.name }</h2>
+      <h2 itemProp='name'>{ recipe.name }</h2>
     </header>
   );
 };
@@ -88,7 +91,7 @@ const Stats = () => {
       <th>
         Servings
       </th>
-      <td>
+      <td itemProp='recipeYield'>
         { formatServings(recipe) }
       </td>
     </tr>
@@ -139,7 +142,7 @@ const Equipment = () => {
     <section className={ styles.equipment }>
       <h3>Equipment</h3>
       <ul>
-        { recipe.equipment.map((v, i) => <li key={ i }>{ v }</li>) }
+        { recipe.equipment.map((v, i) => <li itemProp='tool' key={ i }>{ v }</li>) }
       </ul>
     </section>
   );
@@ -182,7 +185,7 @@ const IngredientList = ({ ingredients }: { ingredients: Ingredient[] }) => {
 // An individual ingredient item
 const IngredientItem = ({ ingredient }: { ingredient: Ingredient }) => {
   return (
-    <li>
+    <li itemProp='recipeIngredient'>
       <span className={ styles.quantity }>
         { formatIngredientQuantity(ingredient) }
       </span>
@@ -200,8 +203,8 @@ const Directions = () => {
   return (
     <section className={ styles.directions }>
       <h3>Directions</h3>
-      <ol>
-          { recipe.steps.map((s, i) => <li key={ i }>{ s }</li>) }
+      <ol itemProp='recipeInstructions'>
+          { recipe.steps.map((s, i) => <li itemProp='step' key={ i }>{ s }</li>) }
       </ol>
     </section>
   );
@@ -212,7 +215,7 @@ const Intro = () => {
   const recipe = useRecipe();
 
   return (
-    <section className={ styles.intro } dangerouslySetInnerHTML={{ __html: recipe.content }} />
+    <section itemProp='description' className={ styles.intro } dangerouslySetInnerHTML={{ __html: recipe.content }} />
   );
 };
 
