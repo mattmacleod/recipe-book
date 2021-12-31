@@ -189,6 +189,7 @@ const IngredientItem = ({ ingredient }: { ingredient: Ingredient }) => {
       <span className={ styles.quantity }>
         { formatIngredientQuantity(ingredient) }
       </span>
+      { " " }
       <span className={ styles.name }>
         { formatIngredientName(ingredient) }
       </span>
