@@ -204,9 +204,11 @@ const Directions = () => {
   return (
     <section className={ styles.directions }>
       <h3>Directions</h3>
-      <ol itemProp='recipeInstructions'>
-          { recipe.steps.map((s, i) => <li itemProp='step' key={ i }>{ s }</li>) }
-      </ol>
+      <div itemProp='recipeInstructions'>
+        <ol>
+            { recipe.steps.map((s, i) => <li itemProp='step' key={ i }>{ s }</li>) }
+        </ol>
+      </div>
     </section>
   );
 };
