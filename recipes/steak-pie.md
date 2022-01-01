@@ -1,5 +1,6 @@
 ---
 name: Steak pie
+image: steak-pie.jpg
 categories:
   - main courses
 servings: 3
