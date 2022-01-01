@@ -31,4 +31,6 @@ steps:
 
 ---
 
-This is a recipe for a straightforward chicken katsu Curry. It uses a ready-made Japanese curry mix – something like S&B Golden Curry Sauce Mix. You can substitute a ready-to-use curry sauce if you prefer.
+This is a recipe for a straightforward chicken katsu curry. It uses a ready-made Japanese curry mix – something like S&B Golden Curry Sauce Mix. You can substitute a ready-to-use curry sauce if you prefer.
+
+Canola/rapeseed, sunflower, or corn oil work for frying.
