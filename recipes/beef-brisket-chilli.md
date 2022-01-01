@@ -36,7 +36,7 @@ steps:
   - Pour in the coffee, tinned tomatoes, and the molasses. Break the tomatoes up a little with a spoon, then add the brisket and cover. Leave for about three hours, simmering gently and stirring occasionally.
   - When the meat is cooked, it should basically be falling apart. Take two forks, and gently pull apart the chunks.
   - Add the bell peppers, then drain and add the beans. Stir to combine, then leave simmering uncovered for about 30 minutes.
-  -  Add the lime juice, then have a taste and add additional seasoning as required. Serve with rice or tortillas, along with sour cream, guacamole, cheese, and all the usual fixins.
+  - Add the lime juice, then have a taste and add additional seasoning as required. Serve with rice or tortillas, along with sour cream, guacamole, cheese, and all the usual fixins.
 
 ---
 
