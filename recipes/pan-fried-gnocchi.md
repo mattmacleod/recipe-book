@@ -34,7 +34,7 @@ steps:
   - At this point, the gnocchi is ready – if you want to use it in some other recipe, stop here.
   - Otherwise, set the cast iron pan over a medium heat. Dice the shallots and chop the garlic. Reserve about 8 of the sage leaves, then finely chop the rest of the sage.
   - Add half of the butter to the pan and allow to melt, then lightly fry the reserved sage leaves – add them to the butter and make sure they're flat against the pan, flipping them occasionally. After a couple of minutes, when they just start to turn brown, remove and place them on some kitchen paper to drain.
-  - Add the shallots to the pan, and fry for 4-5 minutes until they start to colour. Add the garlic and sage, and continue frying for about 2 minutes. Turn off the heat and remove the shallot mixture from the pan, trying to leave as much oil in the pan as possible.
+  - Add the shallots to the pan, and fry for 4-5 minutes until they start to colour. Add the garlic and sage, and continue frying for about 2 minutes. Turn off the heat, add the vinegar, and remove the shallot mixture from the pan, trying to leave as much oil in the pan as possible.
   - Tip the gnocchi into the pan – again, working in batches if required, so you can avoid overcrowding the pan.
   - Toss the gnocchi in the oil for about 3–4 minutes until it's starting to crisp up and take on a lovely brown colour.
   - When the gnocchi is all cooked, add it all back to the pan, along with the reserved shallot mixture and the rest of the butter. Stir for a couple of minutes until warmed through, then serve in bowls garnished with the fried sage leaves.
