@@ -25,9 +25,6 @@
   @include breakpoints(small) {
     padding: 0 grid-units(0.5) grid-units(1);
   }
-  display: flex;
-  flex-wrap: wrap;
-  gap: grid-units(1);
 
   h3 {
     font-weight: bold;
@@ -35,14 +32,38 @@
   }
 
   .category {
-    flex: 1 0 30%;
-    min-width: 300px;
+    margin-bottom: grid-units(1);
     .header {
       border-bottom: 1px $color-border solid;
     }
   }
 
   .recipes {
+    display: flex;
     margin-top: grid-units(0.5);
+    gap: grid-units(1);
+    flex-wrap: wrap;
+
+    .recipe {
+      flex: 0 0 calc(50% - grid-units(0.5));
+      min-height: grid-units(4.75);
+      @include breakpoints(small) {
+        flex: 0 0 100%;
+      }
+
+      a {
+        display: flex;
+        align-items: flex-end;
+        font-weight: bold;
+        width: 100%;
+        height: 100%;
+        padding: grid-units(0.5);
+        @include font-size(26px, 1.25);
+        text-decoration: none;
+        font-weight: bold;
+        color: white;
+        background: $color-primary;
+      }
+    }
   }
 }

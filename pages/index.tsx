@@ -41,7 +41,9 @@ const Category = ({ category }: { category: Category }) => {
           category.recipes.map((r) => (
             <li key={ r.slug } className={ styles.recipe }>
               <Link href={ `/recipes/${ r.slug }` }>
-                { r.name }
+                <a>
+                  <span>{ r.name }</span>
+                </a>
               </Link>
             </li>
           ))
