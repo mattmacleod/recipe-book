@@ -31,7 +31,7 @@ steps:
   - Add the garlic and ginger paste and stir to combine. Add the tomatoes and cook down for about 5 minutes, breaking the tomatoes up to form the sauce.
   - Add all of the dry spices and stir to combine. Continue to cook for another 5–10 minutes until the sauce has reduced and is quite thick.
   - Chop the chillies into three or four parts each and add to the pan, along with the butter. Stir while the butter melts to combine. You should end up with a smooth and glossy sauce.
-  - Taste and add salt and lemon juice to taste. Add the chopped chillies and ginger and stir to combine. Serve immediately with rice or roti.
+  - Taste and add salt and lemon juice to taste. Add the coriander leaves and ginger and stir to combine. Serve immediately with rice or roti.
 
 ---
 
