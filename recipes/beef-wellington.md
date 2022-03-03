@@ -1,7 +1,7 @@
 ---
 name: Beef wellington
 categories:
-  - main courses
+  - meaty
 servings: 6
 prepTime: 1 hour
 cookTime: 3 hours

@@ -1,7 +1,7 @@
 ---
 name: Spaghetti Carbonara
 categories:
-  - main courses
+  - pasta
 servings: 2
 prepTime: 5 minutes
 cookTime: 10 minutes

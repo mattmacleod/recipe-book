@@ -1,7 +1,7 @@
 ---
 name: Chicken katsu curry
 categories:
-  - main courses
+  - chicken
 servings: 2
 prepTime: 1 hour
 cookTime: 30 minutes

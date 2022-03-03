@@ -2,7 +2,7 @@
 name: Sarmale
 image: sarmale.jpg
 categories:
-  - main courses
+  - meaty
 servings: 60
 prepTime: 1 hour
 cookTime: 90 minutes

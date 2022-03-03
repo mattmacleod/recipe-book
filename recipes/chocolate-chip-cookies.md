@@ -1,7 +1,7 @@
 ---
 name: Chocolate chip cookies
 categories:
-  - baked goods
+  - sweet bakes
 servings: 16 cookies
 prepTime: 15 minutes
 cookTime: 10 minutes

@@ -1,7 +1,7 @@
 ---
 name: Sausage rolls
 categories:
-  - baked goods
+  - savoury bakes
 servings: 12
 prepTime: 20 minutes
 cookTime: 25 minutes

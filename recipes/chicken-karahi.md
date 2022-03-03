@@ -1,7 +1,7 @@
 ---
 name: Chicken Karahi
 categories:
-  - main courses
+  - chicken
 servings: 2
 prepTime: 10 minutes
 cookTime: 30 minutes

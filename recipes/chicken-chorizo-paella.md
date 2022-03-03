@@ -1,7 +1,7 @@
 ---
 name: Chicken and chorizo paella
 categories:
-  - main courses
+  - rice
 servings: 4
 prepTime: 30 minutes
 cookTime: 35 minutes

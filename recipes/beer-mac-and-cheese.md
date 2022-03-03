@@ -1,7 +1,7 @@
 ---
 name: Beer mac and cheese
 categories:
-  - main courses
+  - pasta
 servings: 4
 prepTime: 10 minutes
 cookTime: 45 minutes

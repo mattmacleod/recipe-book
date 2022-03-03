@@ -2,7 +2,7 @@
 name: Beef brisket chilli
 image: beef-brisket-chilli.jpg
 categories:
-  - main courses
+  - meaty
 servings: 10
 prepTime: 1 hour
 cookTime: 3 hours

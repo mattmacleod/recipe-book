@@ -1,7 +1,7 @@
 ---
 name: Gluten-free chocolate brownies
 categories:
-  - baked goods
+  - sweet bakes
 servings: 1 tray
 prepTime: 10 minutes
 cookTime: 30 minutes

@@ -1,7 +1,7 @@
 ---
 name: Pan-fried gnocchi with garlic and sage
 categories:
-  - main courses
+  - pasta
 servings: 3
 prepTime: 1 hour
 cookTime: 30 minutes

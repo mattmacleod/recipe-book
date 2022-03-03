@@ -1,5 +1,5 @@
 ---
-name: Basic flaky pastry
+name: Flaky pastry
 categories:
   - basics
 servings: 12 portions

@@ -1,7 +1,7 @@
 ---
 name: Thai minced beef
 categories:
-  - main courses
+  - meaty
 servings: 2
 prepTime: 10 minutes
 cookTime: 15 minutes

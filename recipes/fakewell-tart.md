@@ -2,7 +2,7 @@
 
 name: Fakewell tart
 categories:
-  - baked goods
+  - sweet bakes
 servings: 16
 prepTime: 30 minutes
 cookTime: 1 hour, plus time to cool

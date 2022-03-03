@@ -1,7 +1,7 @@
 ---
 name: Huli Huli Chicken
 categories:
-  - main courses
+  - chicken
 servings: 4
 prepTime: 30 minutes
 cookTime: 15 minutes

@@ -1,7 +1,7 @@
 ---
 name: Coconut and lime chicken
 categories:
-  - main courses
+  - chicken
 servings: 2
 prepTime: 5 minutes plus marinading
 cookTime: 10 minutes

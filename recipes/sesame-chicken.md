@@ -1,7 +1,7 @@
 ---
 name: Sesame chicken
 categories:
-  - main courses
+  - chicken
 servings: 4
 prepTime: 30 minutes
 cookTime: 30 minutes

@@ -2,7 +2,7 @@
 name: Steak pie
 image: steak-pie.jpg
 categories:
-  - main courses
+  - meaty
 servings: 3
 prepTime: 30 minutes
 cookTime: 3 hours

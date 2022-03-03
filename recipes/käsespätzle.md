@@ -1,7 +1,7 @@
 ---
 name: Käsespätzle mit Speck
 categories:
-  - main courses
+  - pasta
 servings: 6
 prepTime: 10 minuten
 cookTime: 20 minuten
