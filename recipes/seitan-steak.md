@@ -1,7 +1,7 @@
 ---
 name: Seitan steak
 categories:
-  - veggie mains
+  - veggie
 servings: 4
 prepTime: 45 minutes
 cookTime: 45 minutes
