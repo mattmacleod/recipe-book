@@ -37,7 +37,7 @@ ingredients:
 
 steps:
   - Prepare the chicken marinade – combine yogurt, garlic, paprika, cumin, onion, lemon zest and juice, olive oil, coriander, salt, and pepper. Cut chicken into 3cm cubes and add to marinade, then leave in the fridge for at least two hours.
-  - Meanwhile, prepare the sauce. Chop the onion and pepper, and cook with a little olive oil for 5-6 minutes until soft. Add the garlic and cook for a few more minutes, then add the tomatoes, salt and pepper. Bring to a simmer and cover, then cook got at least 1.5 hours. Season to taste.
+  - Meanwhile, prepare the sauce. Chop the onion and pepper, and cook with a little olive oil for 5-6 minutes until soft. Add the garlic and chilli, and cook for a few more minutes, then add the tomatoes, salt and pepper. Bring to a simmer and cover, then cook got at least 1.5 hours. Season to taste.
   - While the sauce is cooking, prepare the spiced butter. Add the butter and chill flakes to a small pan and place oer a low heat. Cook until the butter starts to brown, then remove from the heat and set aside.
   - Grill or barbecue the chicken as required, and set aside.
   - Assemble the dish – place a few small hunks of pide in a bowl and top with yoghurt. Add some chicken, then pour the sauce over, Top with more yoghurt and the spiced butter.
