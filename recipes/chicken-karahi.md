@@ -6,7 +6,7 @@ servings: 2
 prepTime: 10 minutes
 cookTime: 30 minutes
 equipment:
-  - wok or large prying pan
+  - wok or large frying pan
 ingredients:
   - skinless, boneless chicken thighs: 500g
   - vegetable oil: 2tbsp
