@@ -10,7 +10,7 @@ equipment:
   - Cheesecloth
   - Baking paper
 ingredients:
-  For the sauerkraut
+  For the sauerkraut:
     - drained sauerkraut: 1kg
     - vegetable oil, lard, or goose/duck fat: 100ml
     - onion: 1

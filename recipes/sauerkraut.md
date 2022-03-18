@@ -2,7 +2,7 @@
 name: Sauerkraut
 categories:
   - basics
-servings: about a 1 litre jar
+servings: 4
 prepTime: 5 minutes, plus a week of fermentation
 equipment:
   - A large fermentation jar, e.g. a mason jar
