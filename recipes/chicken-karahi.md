@@ -35,4 +35,4 @@ steps:
 
 ---
 
-This is a straightforward and delicious from-scratch chicken curry recipe that's become my go-to for curry. The recipe is Pakistani in origin, and the sauce is built from a bit of crushed whole tomatoe. It's really flavourful and doesn't take long to make at all, considering it's from scratch. It's best with roti in my opinion, but rice is also fine.
+This is a straightforward and delicious from-scratch recipe that's become my go-to for curry. The recipe is Pakistani in origin, and the sauce is built from a bit of crushed whole tomato. It's really flavourful and doesn't take long to make at all, considering it's from scratch. It's best with roti in my opinion, but rice is also fine.
